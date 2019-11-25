@@ -21,6 +21,7 @@ public class XZerkrypter {
         CommandHandler.commands.put("kick", new KickCommand());
         CommandHandler.commands.put("clear", new ClearCommand());
         CommandHandler.commands.put("unban", new UnbanCommand());
+        CommandHandler.commands.put("mute", new MuteCommand());
         try {
             builder.build();
         } catch (LoginException e) {
