@@ -1,5 +1,8 @@
 package com.bbn.XZerkrypter;
 
+import com.bbn.XZerkrypter.commands.moderation.*;
+import com.bbn.XZerkrypter.core.CommandHandler;
+import com.bbn.XZerkrypter.listener.CommandListener;
 import com.bbn.XZerkrypter.listener.ReadyListener;
 import net.dv8tion.jda.api.JDABuilder;
 
@@ -11,8 +14,11 @@ public class XZerkrypter {
 
         JDABuilder builder = new JDABuilder();
         builder.setToken("NjQ4NTQyODk2MjY5ODE5OTA2.Xdv0OQ.RVehDymEQoGvJdGJcrfaDqIonbQ");
-        builder.addEventListeners(new ReadyListener());
+        builder.addEventListeners(new ReadyListener(), new CommandListener());
         builder.setAutoReconnect(true);
+
+        CommandHandler.commands.put("ban", new BanCommand());
+        CommandHandler.commands.put("kick", new KickCommand());
         try {
             builder.build();
         } catch (LoginException e) {
