@@ -24,7 +24,7 @@ public class XZerkrypter {
         CommandHandler.commands.put("mute", new MuteCommand());
         CommandHandler.commands.put("unmute", new UnmuteCommand());
         CommandHandler.commands.put("meme", new MemeCommand());
-        CommandHandler.commands.put("lotto", new MemeCommand());
+        CommandHandler.commands.put("lotto", new LottoCommand());
         try {
             builder.build();
         } catch (LoginException e) {
