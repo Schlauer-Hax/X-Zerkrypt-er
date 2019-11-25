@@ -30,6 +30,11 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.29</version>
         </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20190722</version>
+        </dependency>
     </dependencies>
 
 

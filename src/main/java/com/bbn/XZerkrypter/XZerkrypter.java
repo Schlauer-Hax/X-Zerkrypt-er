@@ -1,9 +1,9 @@
 package com.bbn.XZerkrypter;
 
+import com.bbn.XZerkrypter.commands.fun.*;
 import com.bbn.XZerkrypter.commands.moderation.*;
-import com.bbn.XZerkrypter.core.CommandHandler;
-import com.bbn.XZerkrypter.listener.CommandListener;
-import com.bbn.XZerkrypter.listener.ReadyListener;
+import com.bbn.XZerkrypter.core.*;
+import com.bbn.XZerkrypter.listener.*;
 import net.dv8tion.jda.api.JDABuilder;
 
 import javax.security.auth.login.LoginException;
@@ -23,6 +23,7 @@ public class XZerkrypter {
         CommandHandler.commands.put("unban", new UnbanCommand());
         CommandHandler.commands.put("mute", new MuteCommand());
         CommandHandler.commands.put("unmute", new UnmuteCommand());
+        CommandHandler.commands.put("meme", new MemeCommand());
         try {
             builder.build();
         } catch (LoginException e) {
