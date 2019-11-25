@@ -24,12 +24,12 @@ public class BanCommand implements Command {
                         .build()).queue();
                 } else {
                     event.getTextChannel().sendMessage(new EmbedBuilder()
-                            .setTitle("Keine Permission")
-                            .setDescription("Ich benötige die `Ban Members` Permission um diesen Command auszuführen.")
-                            .setColor(Color.RED)
-                            .setTimestamp(Instant.now())
-                            .build()).queue();
-                }
+                        .setTitle("Keine Permission")
+                        .setDescription("Ich benötige die `Ban Members` Permission um diesen Command auszuführen.")
+                        .setColor(Color.RED)
+                        .setTimestamp(Instant.now())
+                        .build()).queue();
+            }
             } else {
                 event.getTextChannel().sendMessage(new EmbedBuilder()
                         .setTitle("Keine Permission")
