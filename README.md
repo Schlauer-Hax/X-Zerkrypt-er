@@ -1,2 +1,2 @@
 # X-Zerkrypt-er
-Bot by KLΩTZCHΣΠGRΔFIK #5360
+A simple Discord Bot for KLΩTZCHΣΠGRΔFIK#5360
