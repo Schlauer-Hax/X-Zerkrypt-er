@@ -7,9 +7,11 @@ import com.bbn.XZerkrypter.listener.*;
 import net.dv8tion.jda.api.JDABuilder;
 
 import javax.security.auth.login.LoginException;
+import java.util.ArrayList;
 
 public class XZerkrypter {
 
+    public static ArrayList BotPlus = new ArrayList();
     public static void main(String[] Args) {
 
         JDABuilder builder = new JDABuilder();
@@ -25,6 +27,8 @@ public class XZerkrypter {
         CommandHandler.commands.put("unmute", new UnmuteCommand());
         CommandHandler.commands.put("meme", new MemeCommand());
         CommandHandler.commands.put("lotto", new LottoCommand());
+        CommandHandler.commands.put("userban", new UserBanCommand());
+        CommandHandler.commands.put("userkick", new UserKickCommand());
         try {
             builder.build();
         } catch (LoginException e) {
