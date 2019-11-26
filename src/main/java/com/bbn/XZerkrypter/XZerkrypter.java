@@ -16,7 +16,7 @@ public class XZerkrypter {
     public static void main(String[] Args) {
 
         JDABuilder builder = new JDABuilder();
-        builder.setToken("NjQ4NTQyODk2MjY5ODE5OTA2.Xdv0OQ.RVehDymEQoGvJdGJcrfaDqIonbQ");
+        builder.setToken(SECRETS.Token);
         builder.addEventListeners(new ReadyListener(), new CommandListener());
         builder.setAutoReconnect(true);
 
