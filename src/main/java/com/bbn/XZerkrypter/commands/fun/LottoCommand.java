@@ -16,10 +16,15 @@ public class LottoCommand implements Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent event) {
-        boolean lotto = Math.random() < 0.10;
+        boolean lotto = Math.random() < 0.07;
         if (lotto) {
             if (event.getGuild().getSelfMember().hasPermission(Permission.MANAGE_ROLES)) {
-                event.getGuild().addRoleToMember(event.getMember(), event.getGuild().getRoleById("648424818441715723")).reason("Lotto win").queue();
+                    if (event.getTextChannel().getSlowmode() == 6) {
+                        event.getGuild().addRoleToMember(event.getMember(), event.getGuild().getRoleById("648424818441715723")).reason("Im Lotto gewonnen").queue();
+                    } else {
+                        event.getTextChannel().getManager().setSlowmode(6).queue();
+                        event.getGuild().addRoleToMember(event.getMember(), event.getGuild().getRoleById("648424818441715723")).reason("Im Lotto gewonnen").queue();
+                    }
             } else {
                 event.getTextChannel().sendMessage(new EmbedBuilder()
                         .setTitle("Keine Permission")
