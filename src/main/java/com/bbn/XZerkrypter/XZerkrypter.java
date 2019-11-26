@@ -1,6 +1,7 @@
 package com.bbn.XZerkrypter;
 
 import com.bbn.XZerkrypter.commands.fun.*;
+import com.bbn.XZerkrypter.commands.misc.*;
 import com.bbn.XZerkrypter.commands.moderation.*;
 import com.bbn.XZerkrypter.core.*;
 import com.bbn.XZerkrypter.listener.*;
@@ -29,6 +30,7 @@ public class XZerkrypter {
         CommandHandler.commands.put("lotto", new LottoCommand());
         CommandHandler.commands.put("userban", new UserBanCommand());
         CommandHandler.commands.put("userkick", new UserKickCommand());
+        CommandHandler.commands.put("help", new HelpCommand());
         try {
             builder.build();
         } catch (LoginException e) {
