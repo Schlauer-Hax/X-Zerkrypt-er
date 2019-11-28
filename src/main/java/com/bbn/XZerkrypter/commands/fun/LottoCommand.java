@@ -22,7 +22,6 @@ public class LottoCommand implements Command {
         boolean botplus = Math.random() < 0.30;
         if (premium) {
             if (event.getGuild().getSelfMember().hasPermission(Permission.MANAGE_ROLES)) {
-                    if (event.getTextChannel().getSlowmode() == 6) {
                         event.getGuild().addRoleToMember(event.getMember(), event.getGuild().getRoleById("648424818441715723")).reason("Im Lotto gewonnen").queue();
                         event.getTextChannel().sendMessage(new EmbedBuilder()
                                 .setTitle("Gewonnen!")
@@ -30,16 +29,6 @@ public class LottoCommand implements Command {
                                 .setColor(Color.magenta)
                                 .setTimestamp(Instant.now())
                                 .build()).queue();
-                    } else {
-                        event.getTextChannel().getManager().setSlowmode(6).queue();
-                        event.getGuild().addRoleToMember(event.getMember(), event.getGuild().getRoleById("648424818441715723")).reason("Im Lotto gewonnen").queue();
-                        event.getTextChannel().sendMessage(new EmbedBuilder()
-                                .setTitle("Gewonnen!")
-                                .setDescription("Herzlichen Glückwunsch du hast soeben die Premium Rolle gewonnen!")
-                                .setColor(Color.magenta)
-                                .setTimestamp(Instant.now())
-                                .build()).queue();
-                    }
             } else {
                 event.getTextChannel().sendMessage(new EmbedBuilder()
                         .setTitle("Keine Permission")
@@ -49,7 +38,6 @@ public class LottoCommand implements Command {
                         .build()).queue();
             }
         } else if (botplus) {
-            if (event.getTextChannel().getSlowmode() == 6) {
                 BotPlus.add(event.getAuthor().getId());
                 event.getTextChannel().sendMessage(new EmbedBuilder()
                         .setTitle("Gewonnen!")
@@ -57,16 +45,6 @@ public class LottoCommand implements Command {
                         .setColor(Color.magenta)
                         .setTimestamp(Instant.now())
                         .build()).queue();
-            } else {
-                event.getTextChannel().getManager().setSlowmode(6).queue();
-                BotPlus.add(event.getAuthor().getId());
-                event.getTextChannel().sendMessage(new EmbedBuilder()
-                        .setTitle("Gewonnen!")
-                        .setDescription("Herzlichen Glückwunsch du hast soeben den Bot Plus Status gewonnen!")
-                        .setColor(Color.magenta)
-                        .setTimestamp(Instant.now())
-                        .build()).queue();
-            }
         } else {
             event.getTextChannel().sendMessage(new EmbedBuilder()
                     .setTitle("Leider nichts")

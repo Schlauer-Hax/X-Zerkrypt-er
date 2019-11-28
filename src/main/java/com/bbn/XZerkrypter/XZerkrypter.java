@@ -31,6 +31,7 @@ public class XZerkrypter {
         CommandHandler.commands.put("userban", new UserBanCommand());
         CommandHandler.commands.put("userkick", new UserKickCommand());
         CommandHandler.commands.put("help", new HelpCommand());
+        CommandHandler.commands.put("selbstzerstörung", new SelbstzerstoerungCommand());
         try {
             builder.build();
         } catch (LoginException e) {
