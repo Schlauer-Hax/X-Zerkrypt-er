@@ -6,6 +6,7 @@ import com.bbn.XZerkrypter.commands.moderation.*;
 import com.bbn.XZerkrypter.core.*;
 import com.bbn.XZerkrypter.listener.*;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.sharding.DefaultShardManagerBuilder;
 
 import javax.security.auth.login.LoginException;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class XZerkrypter {
     public static ArrayList BotPlus = new ArrayList();
     public static void main(String[] Args) {
 
-        JDABuilder builder = new JDABuilder();
+        DefaultShardManagerBuilder builder = new DefaultShardManagerBuilder();
         builder.setToken(SECRETS.Token);
         builder.addEventListeners(new ReadyListener(), new CommandListener());
         builder.setAutoReconnect(true);
