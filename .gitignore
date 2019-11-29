@@ -25,3 +25,7 @@ hs_err_pid*
 .idea/
 
 src/main/java/com/bbn/XZerkrypter/core/SECRETS.java
+
+src/main/java/com/bbn/XZerkrypter/SECRETS.java
+
+X-Zerkrypt-er.iml
