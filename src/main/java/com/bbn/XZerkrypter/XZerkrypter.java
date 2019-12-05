@@ -29,8 +29,6 @@ public class XZerkrypter {
         CommandHandler.commands.put("unmute", new UnmuteCommand());
         CommandHandler.commands.put("meme", new MemeCommand());
         CommandHandler.commands.put("lotto", new LottoCommand());
-        CommandHandler.commands.put("userban", new UserBanCommand());
-        CommandHandler.commands.put("userkick", new UserKickCommand());
         CommandHandler.commands.put("help", new HelpCommand());
         CommandHandler.commands.put("selbstzerstörung", new SelbstzerstoerungCommand());
         try {
