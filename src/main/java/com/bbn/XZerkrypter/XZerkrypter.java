@@ -6,14 +6,17 @@ import com.bbn.XZerkrypter.commands.moderation.*;
 import com.bbn.XZerkrypter.core.*;
 import com.bbn.XZerkrypter.listener.*;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.sharding.DefaultShardManagerBuilder;
 
 import javax.security.auth.login.LoginException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class XZerkrypter {
 
     public static ArrayList BotPlus = new ArrayList();
+    public static HashMap<User, Long> times = new HashMap<>();
     public static void main(String[] Args) {
 
         DefaultShardManagerBuilder builder = new DefaultShardManagerBuilder();
