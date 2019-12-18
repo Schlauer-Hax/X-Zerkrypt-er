@@ -67,6 +67,8 @@ public class LottoCommand implements Command {
         } else event.getTextChannel().sendMessage(new EmbedBuilder()
                 .setTitle("Nicht möglich")
                 .setDescription("Du kannst nur alle sechs Stunden den Lotto Command nutzen.")
+                .setColor(Color.RED)
+                .setTimestamp(Instant.now())
                 .build()).queue();
     }
 }
