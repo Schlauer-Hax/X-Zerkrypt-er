@@ -11,10 +11,8 @@ import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.awt.*;
-import java.text.DateFormat;
 import java.time.Instant;
 import java.util.Calendar;
-import java.util.Date;
 
 import static com.bbn.XZerkrypter.XZerkrypter.BotPlus;
 import static com.bbn.XZerkrypter.XZerkrypter.times;
@@ -66,6 +64,9 @@ public class LottoCommand implements Command {
             Calendar calendar1 = Calendar.getInstance();
             calendar1.add(Calendar.HOUR_OF_DAY, 6);
             XZerkrypter.times.put(event.getAuthor(), calendar1.getTimeInMillis());
-        } else event.getTextChannel().sendMessage(new EmbedBuilder().setTitle("Yo").setDescription("Ey").build()).queue();
+        } else event.getTextChannel().sendMessage(new EmbedBuilder()
+                .setTitle("Nicht möglich")
+                .setDescription("Du kannst nur alle sechs Stunden den Lotto Command nutzen.")
+                .build()).queue();
     }
 }
