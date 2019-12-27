@@ -15,13 +15,22 @@ public class KickCommand implements Command {
         if (event.getMessage().getMentionedMembers().size() == 1) {
             if (event.getMember().hasPermission(Permission.KICK_MEMBERS)) {
                 if (event.getGuild().getSelfMember().hasPermission(Permission.KICK_MEMBERS)) {
-                    event.getGuild().kick(event.getMessage().getMentionedMembers().get(0)).reason("Gekickt von " + event.getAuthor().getAsTag()).queue();
-                    event.getTextChannel().sendMessage(new EmbedBuilder()
-                            .setTitle("Erfolgreich gekickt")
-                            .setDescription("Ich habe " + event.getMessage().getMentionedUsers().get(0).getAsTag() + " erfolgreich gekickt.")
-                            .setColor(Color.GREEN)
-                            .setTimestamp(Instant.now())
-                            .build()).queue();
+                    if (event.getGuild().getSelfMember().canInteract(event.getMessage().getMentionedMembers().get(0))) {
+                        event.getGuild().kick(event.getMessage().getMentionedMembers().get(0)).reason("Gekickt von " + event.getAuthor().getAsTag()).queue();
+                        event.getTextChannel().sendMessage(new EmbedBuilder()
+                                .setTitle("Erfolgreich gekickt")
+                                .setDescription("Ich habe " + event.getMessage().getMentionedUsers().get(0).getAsTag() + " erfolgreich gekickt.")
+                                .setColor(Color.GREEN)
+                                .setTimestamp(Instant.now())
+                                .build()).queue();
+                    } else {
+                        event.getTextChannel().sendMessage(new EmbedBuilder()
+                                .setTitle("Keine Permission")
+                                .setDescription("Meine Rolle muss über der höchsten Rolle der zu bannenden Person sein.")
+                                .setColor(Color.RED)
+                                .setTimestamp(Instant.now())
+                                .build()).queue();
+                    }
                 } else {
                     event.getTextChannel().sendMessage(new EmbedBuilder()
                             .setTitle("Keine Permission")

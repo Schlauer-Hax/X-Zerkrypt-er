@@ -15,21 +15,30 @@ public class BanCommand implements Command {
         if (event.getMessage().getMentionedUsers().size() == 1) {
             if (event.getMember().hasPermission(Permission.BAN_MEMBERS)) {
                 if (event.getGuild().getSelfMember().hasPermission(Permission.BAN_MEMBERS)) {
-                event.getGuild().ban(event.getMessage().getMentionedUsers().get(0), 0).reason("Gebannt von " + event.getAuthor().getAsTag()).queue();
-                event.getTextChannel().sendMessage(new EmbedBuilder()
-                        .setTitle("Erfolgreich gebannt")
-                        .setDescription("Ich habe " + event.getMessage().getMentionedUsers().get(0).getAsTag() + " erfolgreich gebannt.")
-                        .setColor(Color.GREEN)
-                        .setTimestamp(Instant.now())
-                        .build()).queue();
+                    if (event.getGuild().getSelfMember().canInteract(event.getMessage().getMentionedMembers().get(0))) {
+                        event.getGuild().ban(event.getMessage().getMentionedUsers().get(0), 0).reason("Gebannt von " + event.getAuthor().getAsTag()).queue();
+                        event.getTextChannel().sendMessage(new EmbedBuilder()
+                                .setTitle("Erfolgreich gebannt")
+                                .setDescription("Ich habe " + event.getMessage().getMentionedUsers().get(0).getAsTag() + " erfolgreich gebannt.")
+                                .setColor(Color.GREEN)
+                                .setTimestamp(Instant.now())
+                                .build()).queue();
+                    } else {
+                        event.getTextChannel().sendMessage(new EmbedBuilder()
+                                .setTitle("Keine Permission")
+                                .setDescription("Meine Rolle muss über der höchsten Rolle der zu bannenden Person sein.")
+                                .setColor(Color.RED)
+                                .setTimestamp(Instant.now())
+                                .build()).queue();
+                    }
                 } else {
                     event.getTextChannel().sendMessage(new EmbedBuilder()
-                        .setTitle("Keine Permission")
-                        .setDescription("Ich benötige die `Ban Members` Permission um diesen Command auszuführen.")
-                        .setColor(Color.RED)
-                        .setTimestamp(Instant.now())
-                        .build()).queue();
-            }
+                            .setTitle("Keine Permission")
+                            .setDescription("Ich benötige die `Ban Members` Permission um diesen Command auszuführen.")
+                            .setColor(Color.RED)
+                            .setTimestamp(Instant.now())
+                            .build()).queue();
+                }
             } else {
                 event.getTextChannel().sendMessage(new EmbedBuilder()
                         .setTitle("Keine Permission")
