@@ -5,7 +5,6 @@ import com.bbn.XZerkrypter.commands.misc.*;
 import com.bbn.XZerkrypter.commands.moderation.*;
 import com.bbn.XZerkrypter.core.*;
 import com.bbn.XZerkrypter.listener.*;
-import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.sharding.DefaultShardManagerBuilder;
 
