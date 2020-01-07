@@ -13,7 +13,7 @@ public class GameAnimator {
 
     public void start() {
         Thread t = new Thread(() -> {
-            String[] gameAnimations = new String[]{"mit Klötzchengrafik | ?help ", "mit %u Usern"};
+            String[] gameAnimations = new String[]{"auf SPEED | ?help ", "mit %u Usern"};
             int currentGame = 0;
             long last = 0;
             while (true) {
